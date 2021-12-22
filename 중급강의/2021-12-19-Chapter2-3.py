@@ -64,9 +64,11 @@ print(car1._details.get('price'))
 
 Car.price_per_raise = 1.4
 
+#인스턴스로 호출
 print(car1.get_price())
 print(car1.get_price_culc())
 
+#클래스로 호출
 Car.raise_price(1)
 Car.raise_price(1.6)
 
