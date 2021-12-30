@@ -36,6 +36,7 @@ Point1 = namedtuple('Point', ['x', 'y'])
 Point2 = namedtuple('Point', 'x, y')
 Point3 = namedtuple('Point', 'x y')
 # 예약어나 중복되는 이름을 가진 튜플을 작성하고자 할떄는 rename=True 옵션을 사용
+# 옵션을 사용하게 되면 암의 변수명으로 변경되어 생성된다.
 Point4 = namedtuple('Point', 'x y x class', rename = True) # Default = False
 
 print(Point1, Point2, Point3, Point4)
