@@ -49,3 +49,29 @@ s *= 2
 
 print(l, id(l))
 print(s, id(s))
+
+# sort vs sorted
+# reverse, key=len, key=str.lower, key=func....
+
+# sorted : 정렬 후 원본을 그대로 두고 새로운 객체 반환
+f_list = ['orange', 'apple', 'mango', 'papaya', 'lemon', 'strawberry', 'coconut']
+
+print('sorted -', sorted(f_list))
+print('sorted -', sorted(f_list, reverse=True))
+print('sorted -', sorted(f_list, key=len))
+print('sorted -', sorted(f_list, key=lambda x: x[-1]))
+print('sorted -', sorted(f_list, key=lambda x: x[-1], reverse=True))
+print(f_list)
+
+
+
+# sort : 정렬 후 원본을 변경 (객체 직접 변경)
+# 반환 값 확인(none)
+
+print('sort - ', f_list.sort())
+
+print('sort - ', f_list)
+print('sort - ', f_list.sort(reverse=True), f_list)
+print('sort - ', f_list.sort(key=len))
+print('sort - ', f_list.sort(key=lambda x: x[-1]), f_list)
+print('sort - ', f_list.sort(key=lambda x: x[-1], reverse=True), f_list)
