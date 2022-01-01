@@ -48,3 +48,26 @@ array_g = array.array('I',(ord(s) for s in chars))
 print(tuple_g)
 print(array_g)
 print(next(tuple_g))
+
+# Generator 예제
+print(('%s' % c + str(n) for c in ['A', 'B', 'C', 'D'] for n in range(1, 21)))
+
+for s in ('%s' % c + str(n) for c in ['A', 'B', 'C', 'D'] for n in range(1, 21)) :
+    print(s)
+
+
+# 리스트 생성시 주의사항
+marks1 = [['~'] * 5 for n in range(5)]
+marks2 = [['~'] * 3] * 4
+
+# 리스트 수정
+
+marks1[0][1] = 'X'
+marks2[0][1] = 'X'
+
+print(marks1)
+print(marks2)
+
+# id값 확인
+print([id(i) for i in marks1])
+print([id(i) for i in marks2])
