@@ -1,4 +1,4 @@
-# Chapter4-1
+# Chapter4-2
 # 시퀀스형
 # 컨테이너(Container) 자료형 : 서로다른 자료형을 담을수 있는 것[list, tuple, collections.deque]
 # 플랫(Flat) 자료형 : 단일 자료형만 담을 수 있다.[str, bytes, bytearray, array.array, memoryview]
@@ -75,3 +75,7 @@ print('sort - ', f_list.sort(reverse=True), f_list)
 print('sort - ', f_list.sort(key=len))
 print('sort - ', f_list.sort(key=lambda x: x[-1]), f_list)
 print('sort - ', f_list.sort(key=lambda x: x[-1], reverse=True), f_list)
+
+# list vs Array 적합한 사용법 설명
+# 리스트 기반 : 융통성, 다양한 자료형, 범용적 사용
+# 숫자 기반 : 머신러닝, 딥러닝 등에.., 배열(리스트와 거의 호환)
