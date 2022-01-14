@@ -60,7 +60,7 @@ print(reduce(lambda x, t: x + t, range(1, 11)))
 
 print(callable(str), callable(3.14))
 
-# partial 사용법 : 인수 고정 -> 콜백 함수 사용
+# partial 사용법 : 인수 고정 -> 콜백 함수 사용 // 두번 고정 가능
 from operator import mul
 from functools import partial
 
@@ -76,3 +76,4 @@ print(five(10))
 print(six())
 print([five(i) for i in range(1, 11)])
 print(list(map(five, range(1,11))))
+
