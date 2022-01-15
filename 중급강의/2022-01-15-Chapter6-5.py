@@ -4,6 +4,7 @@
 # 지연시간(block) CPU 및 리소스 낭비 방지 -> (FILE) Network I/O 관련 작업 할때 동시성 작업 권장
 # 비ㅣ동기 작업과 적합한 프로그램일 경우 압도적 성능 향상 
 
+from asyncio import as_completed
 import threading
 import multiprocessing
 
@@ -22,8 +23,7 @@ import multiprocessing
 
 import os
 import time
-from concurrent import futures
-from unittest import result
+from concurrent.futures import wait, as_completed, ThreadPoolExecutor, ProcessPoolExecutor
 
 WORK_LIST = [100000, 1000000, 10000000, 100000000]
 
@@ -38,18 +38,45 @@ def main():
 
     # 시작시간
     start_tm = time.time()
+    futures_list = []
 
     # 결과 건수
     # ProcessPoolExcutor
-    with futures.ThreadPoolExecutor() as excutor:
-        result = excutor.map(sum_generator, WORK_LIST)
+    with ThreadPoolExecutor() as excutor:
+        for work in WORK_LIST:
+            # future 반환
+            future = excutor.submit(sum_generator, work)
+            # 스케쥴링
+            futures_list.append(future)
+            print('Scheduled for {} : {}'.format(work, future))
+            print()
 
-    # 종료시간
-    end_tm = time.time() - start_tm
-    # 출력 포맷
-    msg = '\n Result ->{} time : {:.2f}s'
-    # 최종 결과 줄력
-    print(msg.format(list(result), end_tm))
+        # result = wait(futures_list, timeout=7)
+        # # 성공
+        # print('Completed Tasks : ' + str(result.done))
+
+        # # 실패
+        # print('Pending ones after wating for 7seconds : ' + str(result.not_done))
+
+        # # 결과 값 출력
+        # print([future.result() for future in result.done])
+
+        # as_completed 결과 출력
+        for future in as_completed(futures_list):
+            result = future.result()
+            done = future.done()
+            cancelled = future.cancelled
+
+            # future 결과 확인
+            print('Future Result: {}, Done : {}'.format(result, done))
+            print('Future Cancelled: {}'.format(cancelled))
+
+    # # 종료시간
+    # end_tm = time.time() - start_tm
+    # # 출력 포맷
+    # msg = '\n time : {:.2f}s'
+    # # 최종 결과 줄력
+    # print(msg.format(list(result), end_tm))
 
 # 실행
 if __name__ == '__main__':
