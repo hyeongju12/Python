@@ -32,7 +32,8 @@ WORK_LIST = [100000, 1000000, 10000000, 100000000]
 
 def sum_generator(n):
     return sum(n for n in range(1, n+1))
-
+# wait
+# as_completed
 def main():
     worker = min(10, len(WORK_LIST))
 
@@ -43,6 +44,7 @@ def main():
     # ProcessPoolExcutor
     with futures.ThreadPoolExecutor() as excutor:
         result = excutor.map(sum_generator, WORK_LIST)
+    
 
     # 종료시간
     end_tm = time.time() - start_tm
