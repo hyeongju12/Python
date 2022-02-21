@@ -73,3 +73,4 @@ print(x[-2])
 print(x[0:len(x)+1])
 print(x[0:10:2])
 print(x[-1:-10:-1])
+
