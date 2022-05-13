@@ -100,3 +100,4 @@ Udemy 강의를 듣고 강사가 Quiz O/X 문제 게임에 대한 클래스 생�
 웹 api 작성할 때 큰 도움이 될거같다.
 class method, cls member도 잊지말고 수요일에 전체적으로 복습한번해야겠다.
 
+day18
