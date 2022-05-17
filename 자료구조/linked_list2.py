@@ -133,7 +133,14 @@ if __name__ == '__main__':
 	show_list(slist)
 	print()
 
+	slist.append(3)
+	slist.append(1)
+	slist.append(5)
 	slist.append(2)
+	slist.append(10)
+	slist.append(7)
+	slist.append(2)
+
 	print(f"데이터의 개수는 {slist.size()}")
 	show_list(slist)
 	print()
@@ -142,5 +149,12 @@ if __name__ == '__main__':
 		print(f"데이터의 개수는 {slist.size()}")
 		show_list(slist)
 		print()
+	else:
+		print('target not found')
 
-
+	if slist.remove(2):
+		print(f"데이터의 개수는 {slist.size()}")
+		show_list(slist)
+		print()
+	else:
+		print('target not found')

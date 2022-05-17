@@ -145,16 +145,15 @@ if __name__ == '__main__':
 	show_list(slist)
 	print()
 
-	if slist.remove(2):
-		print(f"데이터의 개수는 {slist.size()}")
-		show_list(slist)
-		print()
+	data1, pos1 = slist.search_target(2)
+	if data1:
+		print(f'search data : {data1} at postion {pos1}')
 	else:
-		print('target not found')
+		print('there is no data')
 
-	if slist.remove(2):
-		print(f"데이터의 개수는 {slist.size()}")
-		show_list(slist)
-		print()
+	data2, pos2 = slist.search_target(2, pos1+1)
+	if data2:
+		print(f'search data : {data2} at postion {pos2}')
 	else:
-		print('target not found')
+		print('there is no data')
+
