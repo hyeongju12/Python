@@ -1,7 +1,7 @@
 from note3 import *
 
 if __name__ == "__main__":
-    raw_data = get_data('C:/Users/Ayaan/Desktop/vscode_workspace/python_study/Python/class_2_3.xlsx')
+    raw_data = get_data('/코드 테스트용/class_2_3.xlsx')
     scores = list(raw_data.values())
 
     avrg = average(scores)
