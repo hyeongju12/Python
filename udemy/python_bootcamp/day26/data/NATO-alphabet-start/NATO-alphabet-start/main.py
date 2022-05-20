@@ -26,6 +26,11 @@ word_frame = pd.read_csv('nato_phonetic_alphabet.csv')
 words = {row.letter : row.code for (index, row) in word_frame.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-name = input('Input your name : ')
-result = {letter.upper() : words[letter.upper()] for letter in name}
-print(result)
+while True:
+	try:
+		name = input('Input your name : ')
+		result = {letter.upper() : words[letter.upper()] for letter in name}
+		print(result)
+		break
+	except KeyError:
+		print("Sorry, only letters in the alphabet please.")
